@@ -1,0 +1,27 @@
+{
+  "name": "30doc-be",
+  "version": "1.0.0",
+  "description": "Backend for 30 Days of Code App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/30DaysOfCode/node-be.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/30DaysOfCode/node-be/issues"
+  },
+  "homepage": "https://github.com/30DaysOfCode/node-be#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.14",
+    "nodemon": "^2.0.7"
+  }
+}
