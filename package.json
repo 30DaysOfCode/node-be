@@ -4,8 +4,9 @@
   "description": "Backend for 30 Days of Code App",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "test": "jest",
+    "start": "node src/server",
+    "start:dev": "nodemon src/server"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,14 @@
   },
   "homepage": "https://github.com/30DaysOfCode/node-be#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
-    "mongoose": "^5.11.14",
-    "nodemon": "^2.0.7"
+    "mongoose": "^5.11.14"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
   }
 }
