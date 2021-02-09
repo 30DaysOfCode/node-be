@@ -9,7 +9,7 @@ let notFound = generateResponse(
 
 /**
  * This function fetches all certificates in the database.
- * It also filters the questions based on the queries in
+ * It also filters the certificates based on the queries in
  * the request URL.
  */
 exports.fetchCertificates = async function (req, res) {

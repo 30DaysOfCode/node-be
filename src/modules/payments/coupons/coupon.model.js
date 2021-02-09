@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const CouponSchema = mongoose.Schema({
     code: {
-        type: String
+        type: String,
+        default: require('./utils')()
     },
     discount: {
         type: Number,

@@ -9,7 +9,7 @@ let notFound = generateResponse(
 
 /**
  * This function fetches all task attempts in the database.
- * It also filters the questions based on the queries in
+ * It also filters the attempts based on the queries in
  * the request URL.
  */
 exports.fetchAttempts = async function (req, res) {
