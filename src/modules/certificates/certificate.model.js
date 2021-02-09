@@ -1,9 +1,17 @@
 const mongoose = require('mongoose');
 
 const CertificateSchema = mongoose.Schema({
-    user: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
+        required: true
+    },
+    fisrtname: {
+        type: String,
+        required: true
+    },
+    lastname: {
+        type: String,
         required: true
     },
     track: {

@@ -7,7 +7,7 @@ router.get('/', AttemptController.fetchAttempts)
 
 router.get('/:id', AttemptController.fetchAttemptById)
 
-router.post('/add', AttemptController.addAttempt)
+router.post('/create', AttemptController.addAttempt)
 
 router.patch('/edit/:id', AttemptController.editAttempt)
 

@@ -4,6 +4,11 @@ const { generateResponse, createError } = require("../../../utils");
 
 let notFound = generateResponse(404, createError('That question does not exist.'));
 
+/*
+This function fetches all questions. It also filters
+the questions based on the queries passed into the
+request URL.
+*/
 exports.fetchQuestions = async function (req, res) {
     console.log(req.query)
     let data = await Question.find(req.query);
@@ -13,6 +18,11 @@ exports.fetchQuestions = async function (req, res) {
     res.json(result);
 };
 
+/*
+This function fetches one question, which is the question
+with the passed in ID. If no question with that ID exists,
+the appropriate message is delivered.
+*/
 exports.fetchQuestionById = async function (req, res) {
     let questionId = req.params.id;
     try {
@@ -27,6 +37,12 @@ exports.fetchQuestionById = async function (req, res) {
     }
 };
 
+/*
+This function is responsible for the addition of 
+questions to the database. It expects the required
+fields from the request and creates the question with 
+the data.
+*/
 exports.addQuestion = async function (req, res) {
     const { cohortId, task, day, track } = req.body;
     try {
@@ -43,6 +59,11 @@ exports.addQuestion = async function (req, res) {
     }
 };
 
+/*
+This function does the editing of questions. It takes
+the values of the provided fields and updates them in
+the database.
+*/
 exports.editQuestion = async function (req, res) {
     let questionId = req.params.id;
     try {
@@ -54,6 +75,11 @@ exports.editQuestion = async function (req, res) {
     }
 };
 
+/*
+This function deletes a question, which is the question
+with the passed in ID. If no question with that ID exists,
+the appropriate message is delivered.
+*/
 exports.deleteQuestion = async function (req, res) {
     let questionId = req.params.id;
     try {
