@@ -12,14 +12,16 @@ const AttemptSchema = mongoose.Schema({
         required: true
     },
     day: {
-        type: Number
+        type: Number,
+        required: true
     },
     track: {
         type: String,
         required: true
     },
     submissionLink: {
-        type: String
+        type: String,
+        required: true
     },
     review: {
         type: String

@@ -1,8 +1,10 @@
 const express = require("express");
 const apiRouter = express.Router();
 
+const attemptRouter = require('../modules/tasks/attempts/attempts.routes');
 const questionRouter = require('../modules/tasks/questions/questions.routes');
 
+apiRouter.use('/attempts', attemptRouter)
 apiRouter.use('/questions', questionRouter)
 
 apiRouter.get("/", (req, res) => {

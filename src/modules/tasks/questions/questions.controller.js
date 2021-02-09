@@ -5,7 +5,8 @@ const { generateResponse, createError } = require("../../../utils");
 let notFound = generateResponse(404, createError('That question does not exist.'));
 
 exports.fetchQuestions = async function (req, res) {
-    let data = await Question.find({});
+    console.log(req.query)
+    let data = await Question.find(req.query);
     let result = generateResponse(200, {
         data: data,
     });

@@ -1,4 +1,4 @@
-const QuestionController = require('./questions.controllers');
+const QuestionController = require('./questions.controller');
 const { Router } = require('express');
 
 var router = Router()
