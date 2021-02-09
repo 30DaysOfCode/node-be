@@ -7,14 +7,16 @@ const QuestionSchema = mongoose.Schema({
         required: true
     },
     day: {
-        type: Number
+        type: Number,
+        required: true
     },
     track: {
         type: String,
         required: true
     },
     task: {
-        type: String
+        type: String,
+        required: true
     },
 }, {
     timestamps: true
