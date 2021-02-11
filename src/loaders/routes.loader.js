@@ -1,6 +1,6 @@
 const cors = require("cors");
 const apiRouter = require("../modules/apiRouter");
-const { generateResponse, createError } = require("../utils/index");
+const { generateResponse, createError } = require("../utils");
 
 function setUpRoutes(app, config) {
   return new Promise((resolve, reject) => {
