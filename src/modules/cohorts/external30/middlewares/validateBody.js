@@ -18,20 +18,20 @@ const application = (req, res, next) => {
   if (!comDTO.community_name) {
     fields.push("community_name");
   }
-  if (!comDTO.community_mail || !ValidateEmail(comDTO.community_mail)) {
-    fields.push("community_mail");
+  if (!comDTO.community_email || !ValidateEmail(comDTO.community_email)) {
+    fields.push("community_email");
   }
   if (!comDTO.use_reason) {
     fields.push("use_reason");
+  }if(!comDTO.community_description){
+    fields.push("community_description");
   }
   if (fields.length !== 0) {
     let response = errorObject(
       `The following fields are either missing or invalid: ${fields.join(", ")}`
     );
     res.status(400);
-    return res.json({
-      response,
-    });
+    return res.json(response);
   }
   req.comDTO=comDTO;
   next();

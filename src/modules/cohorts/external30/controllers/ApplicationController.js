@@ -46,7 +46,7 @@ const unapproved = async (req, res) => {
 
 const approve = async (req, res) => {
   let approved = req.body.approved;
-  let docs = await tributes.find({
+  let docs = await Application.find({
     id: { $in: approved },
   });
   for (doc of docs) {
