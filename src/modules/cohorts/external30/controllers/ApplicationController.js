@@ -1,6 +1,10 @@
 const responseObject = require("../utils/responseObject");
 let Application = require("../models/application");
 
+/**
+ * This function processes all valid community applications and adds them to the database
+ */
+
 const apply = async (req, res) => {
   let comDTO = req.comDTO;
   let data = await Application.findOne({
@@ -31,6 +35,10 @@ const apply = async (req, res) => {
   }
 };
 
+
+/**
+ * This function returns all the unapproved community applications
+ */
 const unapproved = async (req, res) => {
   let applications = await Application.find({ approved: false }, "-_id").exec();
   let response = new responseObject(
@@ -44,6 +52,9 @@ const unapproved = async (req, res) => {
   return res.json(response);
 };
 
+/**
+ * This function takes in an array of integers, which represend the id of applications that have been approved, and updates their approval status in the database.
+ */
 const approve = async (req, res) => {
   let approved = req.body.approved;
   let docs = await Application.find({
