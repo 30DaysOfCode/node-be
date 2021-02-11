@@ -1,4 +1,4 @@
 
-generateCouponCode = () => require('crypto-random-string')(10).toUpperCase()
+generateCouponCode = () => require('crypto-random-string')(8).toUpperCase()
 
 module.exports = generateCouponCode;

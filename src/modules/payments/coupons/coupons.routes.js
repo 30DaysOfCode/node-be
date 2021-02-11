@@ -1,4 +1,4 @@
-const CouponController = require('./coupons.controller');
+const CouponController = require('./coupons.controller').default;
 const { Router } = require('express');
 
 var router = Router()
