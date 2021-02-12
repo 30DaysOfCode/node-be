@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon src/server",
+    "start": "node src/server",
     "start:dev": "nodemon src/server"
   },
   "repository": {
