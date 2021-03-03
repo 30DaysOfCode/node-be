@@ -1,11 +1,14 @@
 const express = require("express");
 const apiRouter = express.Router();
 
+const authRouter = require("./Auth/auth.routes")
 const attemptRouter = require('../modules/tasks/attempts/attempts.routes');
 const certificateRouter = require('../modules/certificates/certificates.routes');
 const couponRouter = require('../modules/payments/coupons/coupons.routes');
 const questionRouter = require('../modules/tasks/questions/questions.routes');
 const communityRouter= require("../modules/cohorts/external30/applicationRouter");
+
+apiRouter.use("/auth",authRouter)
 apiRouter.use('/attempts', attemptRouter)
 apiRouter.use('/certificates', certificateRouter)
 apiRouter.use('/coupons', couponRouter)
