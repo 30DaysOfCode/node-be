@@ -1,13 +1,4 @@
-exports.generateResponse = function (status = 404, payload) {
-  return {
-    status,
-    result: payload,
-  };
-};
+const responseUtils = require("./response");
+const cryptoUtils = require("./crypto");
 
-exports.createError = function (errors) {
-  return {
-    data: null,
-    errors,
-  };
-};
+module.exports = {...responseUtils,...cryptoUtils}
