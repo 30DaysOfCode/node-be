@@ -1,6 +1,8 @@
 const joi = require("joi");
 const User = require("../Roles/user/user.model")
 const {generateResponse,createError, getErrorFromJoiFormat} = require("../../utils")
+const jwt=require("jsonwebtoken");;
+const config=require("../../config/config")
 
 const opts = {abortEarly:false}
 
@@ -52,4 +54,18 @@ exports.verifyUniqueDetails = async function(req,res,next){
   if (errors.length) return next(generateResponse(400,createError(errors)))
 
   return next();
+}
+
+exports.authcheck=async (req,res,next)=>{
+  const token = req.headers.authorization;
+  if (token) {
+      jwt.verify(token, config.SECRET_KEY, (err, user) => {
+          if (err) {
+            return next(generateResponse(403,createError("invalid signin token")))
+          }
+          return next();
+      });
+  }else{
+    return next(generateResponse(401,createError("user not signed in")))
+  }
 }

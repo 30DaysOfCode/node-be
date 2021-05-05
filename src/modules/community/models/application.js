@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
-const AutoIncrement = require('mongoose-sequence')(mongoose);
 const Schema = mongoose.Schema;
 
 const ApplicationSchema = new Schema({
-  id: Number,
   community_name: {
     type: String,
     required:true
@@ -24,7 +22,7 @@ const ApplicationSchema = new Schema({
     required:true
   },
   socials:{
-      type: String
+      type: Array
   },
   additional_information: {
     type: String
@@ -36,7 +34,6 @@ const ApplicationSchema = new Schema({
 },{timestamps: true});
 
 
-ApplicationSchema.plugin(AutoIncrement, {inc_field: 'id'});
 let Application = mongoose.model("Application", ApplicationSchema);
 
 module.exports = Application;

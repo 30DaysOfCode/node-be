@@ -15,7 +15,7 @@ class AuthController {
       if(!passwordMatch)throw new Error("Invalid login credentials")
 
       //all validation passed, generate payload and send
-      const token = utils.signJWT({id:user._id})
+      const token = utils.signJWT({id:user._id,role:user.role,email:user.email})
       return generateResponse(200,utils.createSuccessMessage({user,token}))
     } catch (err) {
       return utils.generateResponse(400,utils.createError([err.message])); 
