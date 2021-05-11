@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const AttemptSchema = mongoose.Schema({
-    user: {
+    participant: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'Participant',
         required: true
     },
     cohort: {

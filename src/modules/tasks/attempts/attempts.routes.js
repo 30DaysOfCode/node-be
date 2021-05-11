@@ -1,16 +1,19 @@
-const AttemptController = require('./attempts.controller').default;
-const { Router } = require('express');
+const { Router } = require("express");
+const AttemptController = require("./attempts.controller");
+const { authcheck } = require("../../Auth/auth.middleware");
 
-var router = Router()
+var router = Router();
 
-router.get('/', AttemptController.fetchAttempts)
+router.use(authcheck);
 
-router.get('/:id', AttemptController.fetchAttemptById)
+router.get("/", AttemptController.fetchAttempts);
 
-router.post('/create', AttemptController.addAttempt)
+router.get("/:id", AttemptController.fetchAttemptById);
 
-router.patch('/edit/:id', AttemptController.editAttempt)
+router.post("/create", AttemptController.addAttempt);
 
-router.delete('/delete/:id', AttemptController.deleteAttempt)
+router.patch("/edit/:id", AttemptController.editAttempt);
 
-module.exports = router
+router.delete("/delete/:id", AttemptController.deleteAttempt);
+
+module.exports = router;

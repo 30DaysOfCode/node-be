@@ -1,7 +1,8 @@
 const Attempt = require("./attempt.model");
 const { generateResponse, createError } = require("../../../utils");
+const AuthController = require("../../Auth/auth.controller");
 
-export default class AttemptController {
+class AttemptController {
     //The general 404 error for this set of routes.
     static #notFound = generateResponse(
         404,
@@ -49,7 +50,7 @@ export default class AttemptController {
         const { userId, link, day, track, cohortId } = req.body;
         try {
             var attempt = Attempt({
-                user: userId,
+                participant: participantId,
                 cohort: cohortId,
                 submissionLink: link,
                 day: day,
@@ -107,3 +108,5 @@ export default class AttemptController {
         }
     }
 }
+
+module.exports = AttemptController;
