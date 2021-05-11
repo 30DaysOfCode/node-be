@@ -1,4 +1,4 @@
-const AttemptController = require('./attempts.controller');
+const AttemptController = require('./attempts.controller').default;
 const { Router } = require('express');
 
 var router = Router()
