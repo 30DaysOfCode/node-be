@@ -47,7 +47,6 @@ export default class CouponCtroller {
      * request and creates the coupon with the data.
      */
     static async createCoupon(req, res) {
-        const { userId, link, day, track, cohortId } = req.body;
         try {
             var coupon = Coupon(req.body);
             await coupon.save();
@@ -62,16 +61,12 @@ export default class CouponCtroller {
     }
 
     /**
-     * Function to edit coupons. It allows users to edit
-     * only the link to their submissions.
+     * Function to edit coupons.
      */
     static async editCoupon(req, res) {
         let couponId = req.params.id;
-        let link = req.body.link;
         try {
-            let data = await Coupon.findByIdAndUpdate(couponId, {
-                link: link,
-            });
+            let data = await Coupon.findByIdAndUpdate(couponId, req.body);
             if (!data) return res.json(this.#notfound);
             res.json(
                 generateResponse(201, {
